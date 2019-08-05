@@ -1,0 +1,40 @@
+--What was the hottest day in our data set? Where was that?
+
+SELECT
+	date,
+	AVG(maxtemperaturef) as max_temp
+FROM
+	weather
+GROUP BY date
+ORDER BY max_temp DESC;
+
+--Hottest day was september 8th, 2015, in SF
+
+--How many trips started at each station
+
+SELECT
+	start_station,
+	COUNT(*) as trip_count
+FROM
+	trips
+GROUP BY 
+	start_station
+  
+-- What was the shortest trip?
+SELECT
+	duration
+FROM
+	trips
+ORDER BY
+	duration ASC;
+  -- 60 seconds
+  
+  
+-- What is the average trip duration by end station?
+SELECT
+	end_station,
+	AVG(duration) as avg_duration
+FROM
+	trips
+GROUP BY
+	end_station;
